@@ -4,16 +4,13 @@ import java.util.List;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.EntityManager;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class EmployeeInfo implements UserDetails{
+public class EmployeeInfo {
 
     /**
      */
@@ -51,7 +48,7 @@ public class EmployeeInfo implements UserDetails{
 		if (name == null)
 			return null;
 		
-		List<EmployeeInfo> list = entityManager.createQuery("SELECT user FROM Employee_Info user where user.employee_id = ?1", EmployeeInfo.class).setParameter(1, name)
+		List<EmployeeInfo> list = entityManager().createQuery("SELECT user FROM EmployeeInfo user where user.employee_id = ?1", EmployeeInfo.class).setParameter(1, name)
 				.getResultList();
 
 		EmployeeInfo user =  (list == null || list.size() == 0 ? null : list.get(0));

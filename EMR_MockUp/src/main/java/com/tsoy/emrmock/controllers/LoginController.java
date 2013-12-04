@@ -13,6 +13,10 @@ public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
+	public LoginController () {
+		logger.info("LoginController is created!");
+	}
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */

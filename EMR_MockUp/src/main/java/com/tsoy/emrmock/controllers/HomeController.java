@@ -21,6 +21,9 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	public HomeController () {
+		logger.info("HomeController is created!");
+	}
 	private void updateModel(Principal principal, ModelMap model, boolean isAdmin) {	
 		EmployeeInfo user = EmployeeInfo.findUserByName(principal.getName());
 		if(user == null) return;

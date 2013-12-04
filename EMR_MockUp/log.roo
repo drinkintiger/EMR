@@ -1,0 +1,7 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-04 12:35:47
+hint
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-04 12:42:10
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-04 13:49:41
+entity jpa --class ~.domain.AD_Roles --testAutomatically 
+field number --fieldName role_id --type java.lang.Integer
+field string --fieldName role_name --notNull --sizeMin 2
