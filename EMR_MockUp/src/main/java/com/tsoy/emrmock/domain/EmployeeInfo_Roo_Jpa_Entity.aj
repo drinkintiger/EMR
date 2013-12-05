@@ -17,27 +17,27 @@ privileged aspect EmployeeInfo_Roo_Jpa_Entity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long EmployeeInfo.id;
+    @Column(name = "id_")
+    private Long EmployeeInfo.id_;
     
     @Version
-    @Column(name = "version")
-    private Integer EmployeeInfo.version;
+    @Column(name = "version_")
+    private Integer EmployeeInfo.version_;
     
-    public Long EmployeeInfo.getId() {
-        return this.id;
+    public Long EmployeeInfo.getId_() {
+        return this.id_;
     }
     
-    public void EmployeeInfo.setId(Long id) {
-        this.id = id;
+    public void EmployeeInfo.setId_(Long id) {
+        this.id_ = id;
     }
     
-    public Integer EmployeeInfo.getVersion() {
-        return this.version;
+    public Integer EmployeeInfo.getVersion_() {
+        return this.version_;
     }
     
-    public void EmployeeInfo.setVersion(Integer version) {
-        this.version = version;
+    public void EmployeeInfo.setVersion_(Integer version) {
+        this.version_ = version;
     }
     
 }

@@ -28,9 +28,9 @@ privileged aspect EmployeeInfo_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM EmployeeInfo o", EmployeeInfo.class).getResultList();
     }
     
-    public static EmployeeInfo EmployeeInfo.findEmployeeInfo(Long id) {
-        if (id == null) return null;
-        return entityManager().find(EmployeeInfo.class, id);
+    public static EmployeeInfo EmployeeInfo.findEmployeeInfo(Long id_) {
+        if (id_ == null) return null;
+        return entityManager().find(EmployeeInfo.class, id_);
     }
     
     public static List<EmployeeInfo> EmployeeInfo.findEmployeeInfoEntries(int firstResult, int maxResults) {
@@ -49,7 +49,7 @@ privileged aspect EmployeeInfo_Roo_Jpa_ActiveRecord {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            EmployeeInfo attached = EmployeeInfo.findEmployeeInfo(this.id);
+            EmployeeInfo attached = EmployeeInfo.findEmployeeInfo(this.id_);
             this.entityManager.remove(attached);
         }
     }

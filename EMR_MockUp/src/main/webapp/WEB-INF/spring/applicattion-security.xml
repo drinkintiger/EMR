@@ -29,7 +29,7 @@
 	<bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
 	<security:authentication-manager>
-		<security:authentication-provider user-service-ref="EMRUserService">
+		<security:authentication-provider user-service-ref="emrUserComponent">
 			<security:password-encoder ref="bCryptPasswordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>

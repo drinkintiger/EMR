@@ -1,21 +1,31 @@
 package com.tsoy.emrmock.domain;
+
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class EmployeeInfo {
+public class EmployeeInfo implements UserDetails {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      */
 	@NotNull
-    private Integer employee_number;
+    private Long employee_number;
 
     /**
      */
@@ -44,65 +54,60 @@ public class EmployeeInfo {
     @NotNull
     private String employee_id;
     
+    private Long id;
+    private Integer version;
+    
 	public static EmployeeInfo findUserByName(String name) {
 		if (name == null)
 			return null;
 		
-		List<EmployeeInfo> list = entityManager().createQuery("SELECT user FROM EmployeeInfo user where user.employee_id = ?1", EmployeeInfo.class).setParameter(1, name)
-				.getResultList();
-
-		EmployeeInfo user =  (list == null || list.size() == 0 ? null : list.get(0));
-		if(user != null) {
-			user = EmployeeInfo.findUserByName(user.getEmployee_id());
+		List<EmployeeInfo> list = entityManager().createQuery("SELECT user FROM EmployeeInfo user where user.employee_id = ?1", EmployeeInfo.class).setParameter(1, name).getResultList();
+		
+		EmployeeInfo employee = (list == null || list.size() == 0 ? null : list.get(0));
+		
+		if (employee != null) {
+			employee = EmployeeInfo.findEmployeeInfo(employee.getEmployee_number());
 		}
-		return user;
+		return employee;
+	}
+	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public Integer getEmployee_number() {
-		return employee_number;
+	@Override
+	public String getUsername() {
+		return this.employee_id;
 	}
 
-	public void setEmployee_number(Integer employee_number) {
-		this.employee_number = employee_number;
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	@Override
 	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getEmployee_id() {
-		return employee_id;
-	}
-
-	public void setEmployee_id(String employee_id) {
-		this.employee_id = employee_id;
+		return this.password;
 	}
 }

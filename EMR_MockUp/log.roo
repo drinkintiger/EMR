@@ -5,3 +5,10 @@ hint
 entity jpa --class ~.domain.AD_Roles --testAutomatically 
 field number --fieldName role_id --type java.lang.Integer
 field string --fieldName role_name --notNull --sizeMin 2
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-04 15:14:04
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-04 18:57:59
+perform clean
+perform test
+perform tests
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-04 22:00:08
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 12:32:02

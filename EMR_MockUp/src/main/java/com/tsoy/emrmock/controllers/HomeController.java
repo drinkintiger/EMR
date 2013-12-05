@@ -5,12 +5,14 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.tsoy.emrmock.components.EmrUserComponent;
 import com.tsoy.emrmock.domain.EmployeeInfo;
 
 /**
@@ -19,11 +21,15 @@ import com.tsoy.emrmock.domain.EmployeeInfo;
 @Controller
 public class HomeController {
 	
+	@Autowired
+	EmrUserComponent employee;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	public HomeController () {
 		logger.info("HomeController is created!");
 	}
+	
 	private void updateModel(Principal principal, ModelMap model, boolean isAdmin) {	
 		EmployeeInfo user = EmployeeInfo.findUserByName(principal.getName());
 		if(user == null) return;
