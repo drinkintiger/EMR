@@ -9,11 +9,10 @@ import javax.validation.constraints.Size;
 @RooToString
 @RooJpaActiveRecord
 public class AD_Roles {
-
-    /**
-     */
-    private Integer role_id;
-
+	
+	@NotNull
+	private Long role_id;
+	
     /**
      */
     @NotNull

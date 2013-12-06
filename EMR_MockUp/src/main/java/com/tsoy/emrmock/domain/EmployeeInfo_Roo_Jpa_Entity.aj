@@ -6,38 +6,25 @@ package com.tsoy.emrmock.domain;
 import com.tsoy.emrmock.domain.EmployeeInfo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 privileged aspect EmployeeInfo_Roo_Jpa_Entity {
     
     declare @type: EmployeeInfo: @Entity;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_")
-    private Long EmployeeInfo.id_;
+    declare @type: EmployeeInfo: @Table(name = "employee_info");
     
     @Version
-    @Column(name = "version_")
-    private Integer EmployeeInfo.version_;
+    @Column(name = "version")
+    private Integer EmployeeInfo.version;
     
-    public Long EmployeeInfo.getId_() {
-        return this.id_;
+    public Integer EmployeeInfo.getVersion() {
+        return this.version;
     }
     
-    public void EmployeeInfo.setId_(Long id) {
-        this.id_ = id;
-    }
-    
-    public Integer EmployeeInfo.getVersion_() {
-        return this.version_;
-    }
-    
-    public void EmployeeInfo.setVersion_(Integer version) {
-        this.version_ = version;
+    public void EmployeeInfo.setVersion(Integer version) {
+        this.version = version;
     }
     
 }

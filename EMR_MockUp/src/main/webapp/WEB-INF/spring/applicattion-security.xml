@@ -30,7 +30,6 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="emrUserComponent">
-			<security:password-encoder ref="bCryptPasswordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>
 

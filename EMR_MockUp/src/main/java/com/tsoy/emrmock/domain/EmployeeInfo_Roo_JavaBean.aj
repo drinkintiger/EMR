@@ -51,20 +51,4 @@ privileged aspect EmployeeInfo_Roo_JavaBean {
         this.employee_id = employee_id;
     }
     
-    public Long EmployeeInfo.getId() {
-        return this.id;
-    }
-    
-    public void EmployeeInfo.setId(Long id) {
-        this.id = id;
-    }
-    
-    public Integer EmployeeInfo.getVersion() {
-        return this.version;
-    }
-    
-    public void EmployeeInfo.setVersion(Integer version) {
-        this.version = version;
-    }
-    
 }

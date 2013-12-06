@@ -7,11 +7,11 @@ import com.tsoy.emrmock.domain.AD_Roles;
 
 privileged aspect AD_Roles_Roo_JavaBean {
     
-    public Integer AD_Roles.getRole_id() {
+    public Long AD_Roles.getRole_id() {
         return this.role_id;
     }
     
-    public void AD_Roles.setRole_id(Integer role_id) {
+    public void AD_Roles.setRole_id(Long role_id) {
         this.role_id = role_id;
     }
     

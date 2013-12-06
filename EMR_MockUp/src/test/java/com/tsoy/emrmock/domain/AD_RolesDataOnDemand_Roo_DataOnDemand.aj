@@ -30,7 +30,7 @@ privileged aspect AD_RolesDataOnDemand_Roo_DataOnDemand {
     }
     
     public void AD_RolesDataOnDemand.setRole_id(AD_Roles obj, int index) {
-        Integer role_id = new Integer(index);
+        Long role_id = new Integer(index).longValue();
         obj.setRole_id(role_id);
     }
     
