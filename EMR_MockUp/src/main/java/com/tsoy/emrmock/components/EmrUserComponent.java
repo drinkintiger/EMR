@@ -4,7 +4,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.tsoy.emrmock.domain.EmployeeInfo;
+import com.tsoy.emrmock.domain.users.EmployeeInfo;
 
 @Component
 public class EmrUserComponent implements UserDetailsService{

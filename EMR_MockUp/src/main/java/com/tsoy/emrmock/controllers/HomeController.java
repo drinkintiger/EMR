@@ -12,8 +12,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.tsoy.emrmock.components.AssessmentComponent;
 import com.tsoy.emrmock.components.EmrUserComponent;
-import com.tsoy.emrmock.domain.EmployeeInfo;
+import com.tsoy.emrmock.components.PatientInfoComponent;
+import com.tsoy.emrmock.domain.users.EmployeeInfo;
 
 /**
  * Handles requests for the application home page.
@@ -23,6 +25,12 @@ public class HomeController {
 	
 	@Autowired
 	EmrUserComponent employee;
+	
+	@Autowired
+	AssessmentComponent assessmentComponent;
+	
+	@Autowired
+	PatientInfoComponent patientInfoComponent;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -34,12 +42,12 @@ public class HomeController {
 		EmployeeInfo user = EmployeeInfo.findUserByName(principal.getName());
 		if(user == null) return;
 		
-		/*if (!isAdmin) {
-			model.addAttribute("donuts", donutsComponent.getDonuts(user.getId()));
-		} else {
-			model.addAttribute("donuts", donutsComponent.getAllDonuts());
+		model.addAttribute("patients", patientInfoComponent.getAllPatients());
+		
+		if (!isAdmin) {
+			model.addAttribute("assessments", assessmentComponent.getAssessments(user.getEmployee_number()));
 		}
-		model.addAttribute("user", user.getUsername());*/
+		model.addAttribute("user", user.getUsername());
 	}
 	
 	/**

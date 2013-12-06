@@ -3,73 +3,73 @@
 
 package com.tsoy.emrmock.domain;
 
-import com.tsoy.emrmock.domain.AD_Roles;
+import com.tsoy.emrmock.domain.Assessment;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect AD_Roles_Roo_Jpa_ActiveRecord {
+privileged aspect Assessment_Roo_Jpa_ActiveRecord {
     
     @PersistenceContext
-    transient EntityManager AD_Roles.entityManager;
+    transient EntityManager Assessment.entityManager;
     
-    public static final EntityManager AD_Roles.entityManager() {
-        EntityManager em = new AD_Roles().entityManager;
+    public static final EntityManager Assessment.entityManager() {
+        EntityManager em = new Assessment().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long AD_Roles.countAD_Roleses() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM AD_Roles o", Long.class).getSingleResult();
+    public static long Assessment.countAssessments() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM Assessment o", Long.class).getSingleResult();
     }
     
-    public static List<AD_Roles> AD_Roles.findAllAD_Roleses() {
-        return entityManager().createQuery("SELECT o FROM AD_Roles o", AD_Roles.class).getResultList();
+    public static List<Assessment> Assessment.findAllAssessments() {
+        return entityManager().createQuery("SELECT o FROM Assessment o", Assessment.class).getResultList();
     }
     
-    public static AD_Roles AD_Roles.findAD_Roles(Long id) {
+    public static Assessment Assessment.findAssessment(Long id) {
         if (id == null) return null;
-        return entityManager().find(AD_Roles.class, id);
+        return entityManager().find(Assessment.class, id);
     }
     
-    public static List<AD_Roles> AD_Roles.findAD_RolesEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM AD_Roles o", AD_Roles.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<Assessment> Assessment.findAssessmentEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM Assessment o", Assessment.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void AD_Roles.persist() {
+    public void Assessment.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void AD_Roles.remove() {
+    public void Assessment.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            AD_Roles attached = AD_Roles.findAD_Roles(this.id);
+            Assessment attached = Assessment.findAssessment(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void AD_Roles.flush() {
+    public void Assessment.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void AD_Roles.clear() {
+    public void Assessment.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public AD_Roles AD_Roles.merge() {
+    public Assessment Assessment.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        AD_Roles merged = this.entityManager.merge(this);
+        Assessment merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

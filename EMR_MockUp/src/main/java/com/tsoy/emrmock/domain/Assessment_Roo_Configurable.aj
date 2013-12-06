@@ -3,11 +3,11 @@
 
 package com.tsoy.emrmock.domain;
 
-import com.tsoy.emrmock.domain.PatientInfo;
+import com.tsoy.emrmock.domain.Assessment;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect PatientInfo_Roo_Configurable {
+privileged aspect Assessment_Roo_Configurable {
     
-    declare @type: PatientInfo: @Configurable;
+    declare @type: Assessment: @Configurable;
     
 }

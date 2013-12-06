@@ -3,11 +3,11 @@
 
 package com.tsoy.emrmock.domain;
 
-import com.tsoy.emrmock.domain.AD_Roles;
+import com.tsoy.emrmock.domain.AssessmentDataOnDemand;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect AD_Roles_Roo_Configurable {
+privileged aspect AssessmentDataOnDemand_Roo_Configurable {
     
-    declare @type: AD_Roles: @Configurable;
+    declare @type: AssessmentDataOnDemand: @Configurable;
     
 }

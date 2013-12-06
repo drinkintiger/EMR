@@ -26,32 +26,31 @@
 	<form class="form-inline" role="form">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3>Enter nursing assessment information:</h3>
+				<h3>Enter CNA record information:</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table">
 					<tbody>
 						<tr>
 							<td width="20%"><h3>Food Intake</h3></td>
-							<td><div class="form-group col-lg-3">
+							<td><div class="form-group col-lg-6">
 									<div class="panel panel-default">
-										<div class="panel-heading">Meal Category</div>
 										<div class="panel-body">
 											<div class="input-group">
-												<span class="input-group-addon">Breakfast</span> <input type="text"
-													class="form-control" placeholder="% of a day">
+												<span class="input-group-addon">Breakfast</span> <input
+													type="text" class="form-control" placeholder="%">
 											</div>
 											<div class="input-group">
-												<span class="input-group-addon">Lunch</span> <input type="text"
-													class="form-control" placeholder="% of a day">
+												<span class="input-group-addon">Lunch</span> <input
+													type="text" class="form-control" placeholder="%">
 											</div>
 											<div class="input-group">
-												<span class="input-group-addon">Supper</span> <input type="text"
-													class="form-control" placeholder="% of a day">
+												<span class="input-group-addon">Supper</span> <input
+													type="text" class="form-control" placeholder="%">
 											</div>
 											<div class="input-group">
-												<span class="input-group-addon">Snack</span> <input type="text"
-													class="form-control" placeholder="% of a day">
+												<span class="input-group-addon">Snack</span> <input
+													type="text" class="form-control" placeholder="%">
 											</div>
 										</div>
 									</div>
@@ -60,19 +59,84 @@
 						<tr>
 							<td width="20%"><h3>Fluid Intake</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="input-group">
+												<span class="input-group-addon">Breakfast</span> <input
+													type="text" class="form-control" placeholder="ml">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Lunch</span> <input
+													type="text" class="form-control" placeholder="ml">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Supper</span> <input
+													type="text" class="form-control" placeholder="ml">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Other</span> <input
+													type="text" class="form-control" placeholder="ml">
+											</div>
+										</div>
+									</div>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Fluid Output</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<div class="panel panel-default">
+										<div class="panel-heading">Urine</div>
+										<div class="panel-body">
+											<div class="input-group">
+												<span class="input-group-addon">ML</span> <input type="text"
+													class="form-control"> <span
+													class="input-group-addon">Times voided</span> <input
+													type="text" class="form-control">
+											</div>
+										</div>
+									</div>
 								</div></td>
+							<td>
+								<div class="form-group col-lg-6">
+									<div class="panel panel-default">
+										<div class="panel-heading">Emesis</div>
+										<div class="panel-body">
+											<div class="input-group">
+												<span class="input-group-addon">Small</span> <input
+													type="checkbox" class="form-control">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Medium</span> <input
+													type="checkbox" class="form-control">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Large</span> <input
+													type="checkbox" class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Bowel Movement</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="input-group">
+												<span class="input-group-addon">Small</span> <input
+													type="checkbox" class="form-control">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Medium</span> <input
+													type="checkbox" class="form-control">
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">Large</span> <input
+													type="checkbox" class="form-control">
+											</div>
+										</div>
+									</div>
 								</div></td>
 						</tr>
 						<tr>

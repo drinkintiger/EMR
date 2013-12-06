@@ -32,28 +32,19 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th>ID</th>
 							<th>Patient's Name</th>
-							<th>Username</th>
+							<th>Active</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td><button type="submit" class="btn btn-primary">Mark Otto</button></td>
-							<td>@mdo</td>
-
+						<c:forEach items="${patients}" var="patient">
+							<tr>
+							<td><c:out value="${patient.id}"/></td>
+							<td><button type="submit" class="btn btn-primary"><c:out value="${patient.firstName} ${patient.lastName}"/></button></td>
+							<td><c:out value="${patient.active}"/></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td><button type="submit" class="btn btn-primary">Jacob Thornton</button></td>
-							<td>@fat</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td><button type="submit" class="btn btn-primary">Larry the Bird</button></td>
-							<td>@twitter</td>
-						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>

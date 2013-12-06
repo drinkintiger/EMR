@@ -3,9 +3,9 @@
 
 package com.tsoy.emrmock.domain;
 
-import com.tsoy.emrmock.domain.AD_Roles;
 import com.tsoy.emrmock.domain.AD_RolesDataOnDemand;
 import com.tsoy.emrmock.domain.AD_RolesIntegrationTest;
+import com.tsoy.emrmock.domain.users.AD_Roles;
 import java.util.Iterator;
 import java.util.List;
 import javax.validation.ConstraintViolation;

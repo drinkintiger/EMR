@@ -1,8 +1,15 @@
-package com.tsoy.emrmock.domain;
+package com.tsoy.emrmock.domain.users;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,6 +18,7 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 @RooJavaBean
 @RooToString
@@ -55,12 +63,18 @@ public class EmployeeInfo implements UserDetails {
     @NotNull
     private String employee_id;
     
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(name="user_roles", 
+			   joinColumns= {@JoinColumn(name="employeeinfo_id", referencedColumnName="employee_number")},
+			   inverseJoinColumns={@JoinColumn(name="adrole_id")})	
+	private Set<AD_Roles> authorities = new HashSet<AD_Roles>();
+    
 	public static EmployeeInfo findUserByName(String name) {
 		if (name == null)
 			return null;
 		
 		EmployeeInfo employee = entityManager().createQuery("SELECT user FROM EmployeeInfo user where user.employee_id = ?1", EmployeeInfo.class).setParameter(1, name).getSingleResult();
-		
+		System.out.println(employee);
 		return employee;
 	}
 	

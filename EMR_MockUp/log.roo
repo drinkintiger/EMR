@@ -14,3 +14,22 @@ perform tests
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 12:32:02
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 14:18:49
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 16:33:12
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-05 18:10:13
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 18:48:45
+hint
+hint entities
+entity jpa --class ~.domain.Record --testAutomatically 
+entity jpa --class ~.domain.Assessment
+entity jpa --class ~.domain.Assessment --testAutomatically 
+field string --fieldName VitalSigns 
+field string --fieldName CardioSystem
+field string --fieldName DigestiveSystem
+field string --fieldName EndocrineSystem
+field string --fieldName UrinarySystem
+field string --fieldName MuscularSystem
+field string --fieldName NervousSystem
+field string --fieldName RespiratorySystem
+field string --fieldName Behavior
+// [failed] field date --fieldName Date --type java.util.Date
+field date --fieldName CreatedDate --type java.util.Date
+hint

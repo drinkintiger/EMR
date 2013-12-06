@@ -3,8 +3,8 @@
 
 package com.tsoy.emrmock.domain;
 
-import com.tsoy.emrmock.domain.AD_Roles;
 import com.tsoy.emrmock.domain.AD_RolesDataOnDemand;
+import com.tsoy.emrmock.domain.users.AD_Roles;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,14 +24,8 @@ privileged aspect AD_RolesDataOnDemand_Roo_DataOnDemand {
     
     public AD_Roles AD_RolesDataOnDemand.getNewTransientAD_Roles(int index) {
         AD_Roles obj = new AD_Roles();
-        setRole_id(obj, index);
         setRole_name(obj, index);
         return obj;
-    }
-    
-    public void AD_RolesDataOnDemand.setRole_id(AD_Roles obj, int index) {
-        Long role_id = new Integer(index).longValue();
-        obj.setRole_id(role_id);
     }
     
     public void AD_RolesDataOnDemand.setRole_name(AD_Roles obj, int index) {

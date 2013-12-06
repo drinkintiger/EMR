@@ -1,4 +1,4 @@
-package com.tsoy.emrmock.domain;
+package com.tsoy.emrmock.domain.users;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -8,27 +8,11 @@ import javax.validation.constraints.Size;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class PatientInfo {
-
-    /**
-     */
-    @NotNull
-    private Integer Patient_ID;
-
+public class AD_Roles {
+	
     /**
      */
     @NotNull
     @Size(min = 2)
-    private String LastName;
-
-    /**
-     */
-    @NotNull
-    @Size(min = 2)
-    private String FirstName;
-
-    /**
-     */
-    @NotNull
-    private Boolean Active;
+    private String role_name;
 }

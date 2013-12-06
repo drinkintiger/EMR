@@ -3,13 +3,13 @@
 
 package com.tsoy.emrmock.domain;
 
-import com.tsoy.emrmock.domain.AD_Roles;
+import com.tsoy.emrmock.domain.Assessment;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-privileged aspect AD_Roles_Roo_ToString {
+privileged aspect Assessment_Roo_ToString {
     
-    public String AD_Roles.toString() {
+    public String Assessment.toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
     
