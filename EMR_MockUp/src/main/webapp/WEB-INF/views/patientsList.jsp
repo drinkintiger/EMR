@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,8 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.js"></script>
 
-	<form:form class="form" action="${pageContext.request.contextPath}/home" method="post">
+	<form:form class="form"
+		action="${pageContext.request.contextPath}/home" method="post">
 		<div class="col-lg-3">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
@@ -41,13 +42,13 @@
 					<tbody>
 						<c:forEach items="${patients}" var="patient">
 							<tr>
-							<td><c:out value="${patient.id}"/></td>
-							<td><button type="submit" class="btn btn-primary" name="selectedPatientID" value=${patient.id}>
-								<c:out value="${patient.firstName} ${patient.lastName}"/>
-								</button>
-							</td>
-							<td><c:out value="${patient.active}"/></td>
-						</tr>
+								<td><c:out value="${patient.id}" /></td>
+								<td><button type="submit" class="btn btn-primary"
+										name="selectedPatientID" value=${patient.id}>
+										<c:out value="${patient.firstName} ${patient.lastName}" />
+									</button></td>
+								<td><c:out value="${patient.active}" /></td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -57,7 +58,8 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" name="type">
+						<span class="input-group-addon"> <input type="radio"
+							name="type">
 						</span>
 						<output class="form-control">Active</output>
 					</div>
@@ -68,7 +70,8 @@
 				<!-- /.col-lg-6 -->
 				<div class="col-lg-3">
 					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio" name="type">
+						<span class="input-group-addon"> <input type="radio"
+							name="type">
 						</span>
 						<output type="text" class="form-control">Inactive</output>
 					</div>
@@ -78,11 +81,12 @@
 			</div>
 			<!-- /.row -->
 		</div>
+		<span class="label label-primary">Logged in as ${user}</span>
 		<div class="centered-pills">
-	<ul class="nav nav-pills">
-		<li><a href="<c:url value="/login"/>">Sign Out</a></li>
-	</ul>
-	</div>
+			<ul class="nav nav-pills">
+				<li><a href="<c:url value="/login"/>">Sign Out</a></li>
+			</ul>
+		</div>
 	</form:form>
 </body>
 </html>

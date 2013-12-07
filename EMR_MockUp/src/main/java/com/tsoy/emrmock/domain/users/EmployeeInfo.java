@@ -9,7 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -63,7 +63,7 @@ public class EmployeeInfo implements UserDetails {
     @NotNull
     private String employee_id;
     
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(name="user_roles", 
 			   joinColumns= {@JoinColumn(name="employeeinfo_id", referencedColumnName="employee_number")},
 			   inverseJoinColumns={@JoinColumn(name="adrole_id")})	

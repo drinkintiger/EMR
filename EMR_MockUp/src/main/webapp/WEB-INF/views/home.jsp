@@ -19,7 +19,7 @@
 			<a class="btn btn-primary btn-lg" style="margin-right: 80px"
 				role="button" href="<c:url value="/nursing"/>">Nursing Assessment</a> <a
 				class="btn btn-primary btn-lg" role="button" href="<c:url value="/cna"/>">CNA Charting</a>
-				<button class="btn btn-lg btn-primary " style="margin-left: 80px" type="button" formaction="/charts" formmethod="post">Chart Metrics</button>
+				<a class="btn btn-primary btn-lg" role="button" style="margin-left:80px" href="<c:url value="/charts"/>">Chart Metrics</a>
 		</p>
 	</div>
 	<div class="centered-pills">

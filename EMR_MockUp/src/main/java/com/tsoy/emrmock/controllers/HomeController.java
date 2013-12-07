@@ -71,9 +71,9 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/patientsList", method = RequestMethod.GET)
-	public ModelAndView patientList(Principal principal, ModelMap model, Locale locale) {
+	public String patientList(Principal principal, ModelMap model, Locale locale) {
 		updateModel(principal, model, false);
-		return new ModelAndView("patientsList", "command", new String()); 
+		return "patientsList"; 
 	}
 	
 	@RequestMapping(value = "/patientsList", method = RequestMethod.POST)

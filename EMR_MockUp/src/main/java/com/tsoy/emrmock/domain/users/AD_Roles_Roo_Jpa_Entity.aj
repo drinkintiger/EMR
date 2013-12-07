@@ -24,6 +24,10 @@ privileged aspect AD_Roles_Roo_Jpa_Entity {
     @Column(name = "version")
     private Integer AD_Roles.version;
     
+    public AD_Roles.new() {
+        super();
+    }
+
     public Long AD_Roles.getId() {
         return this.id;
     }
