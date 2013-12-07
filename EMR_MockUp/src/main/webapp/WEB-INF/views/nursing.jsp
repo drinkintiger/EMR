@@ -23,7 +23,8 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.js"></script>
 
-	<form class="form-inline" role="form">
+	<form class="form-inline" role="form" action="saveAssessment"
+		method="post">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Enter nursing assessment
 				information:</div>
@@ -33,67 +34,68 @@
 						<tr>
 							<td width="20%"><h3>Vital Signs</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="VitalSigns"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Cardiovascular System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="CardioSystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Digestive System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="DigestiveSystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Endocrine System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="EndocrineSystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Urinary System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="UrinarySystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Musculosceletal System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="MuscularSystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Nervous System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="NervousSystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Respiratory System</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3"
+										name="RespiratorySystem"></textarea>
 								</div></td>
 						</tr>
 						<tr>
 							<td width="20%"><h3>Behavior</h3></td>
 							<td><div class="form-group col-lg-6">
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" name="Behavior"></textarea>
 								</div></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<div class="centered-pills">
+			<ul class="nav nav-pills">
+				<li><a href="<c:url value="/home"/>">Back</a></li>
+				<li><button type="submit" class="btn btn-primary form-control">Submit</button></li>
+			</ul>
+		</div>
 	</form>
-	<div class="centered-pills">
-	<ul class="nav nav-pills">
-		<li><a href="<c:url value="/home"/>">Back</a></li>
-		<li><a href="<c:url value="/patientsList"/>">Save and Close</a></li>
-	</ul>
-	</div>
 </body>
 </html>

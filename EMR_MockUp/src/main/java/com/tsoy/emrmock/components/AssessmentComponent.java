@@ -21,4 +21,16 @@ public class AssessmentComponent {
 		
 		return patient.getAssessments();
 	}
+	
+	public void create(PatientInfo patient, Assessment assessment) {
+		System.out.println("Creating assessment(" + patient + assessment);
+		
+		assessment.setPatient(patient);
+		
+		System.out.println("saved assessment(" + assessment + ")");
+		patient.getAssessments().add(assessment);
+		patient.merge();
+		System.out.println("created assessment(" + assessment + ")");
+		System.out.println("for patient" + patient + ")");
+	}
 }

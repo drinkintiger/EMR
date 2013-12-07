@@ -24,6 +24,10 @@ privileged aspect Assessment_Roo_Jpa_Entity {
     @Column(name = "version")
     private Integer Assessment.version;
     
+    public Assessment.new() {
+        super();
+    }
+
     public Long Assessment.getId() {
         return this.id;
     }

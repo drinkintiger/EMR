@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.js"></script>
 
-	<form class="form" action="<c:url value="/home"/>" method="post">
+	<form:form class="form" action="${pageContext.request.contextPath}/home" method="post">
 		<div class="col-lg-3">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
@@ -41,7 +42,10 @@
 						<c:forEach items="${patients}" var="patient">
 							<tr>
 							<td><c:out value="${patient.id}"/></td>
-							<td><button type="submit" class="btn btn-primary"><c:out value="${patient.firstName} ${patient.lastName}"/></button></td>
+							<td><button type="submit" class="btn btn-primary" name="selectedPatientID" value=${patient.id}>
+								<c:out value="${patient.firstName} ${patient.lastName}"/>
+								</button>
+							</td>
 							<td><c:out value="${patient.active}"/></td>
 						</tr>
 						</c:forEach>
@@ -55,7 +59,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"> <input type="radio" name="type">
 						</span>
-						<output type="text" class="form-control">Active</output>
+						<output class="form-control">Active</output>
 					</div>
 					<!-- /input-group -->
 				</div>
@@ -79,6 +83,6 @@
 		<li><a href="<c:url value="/login"/>">Sign Out</a></li>
 	</ul>
 	</div>
-	</form>
+	</form:form>
 </body>
 </html>

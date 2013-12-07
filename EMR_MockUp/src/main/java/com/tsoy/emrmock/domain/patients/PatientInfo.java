@@ -3,19 +3,17 @@ package com.tsoy.emrmock.domain.patients;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
 import com.tsoy.emrmock.domain.Assessment;
-
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @RooJavaBean
 @RooToString
@@ -39,10 +37,7 @@ public class PatientInfo {
     @NotNull
     private Boolean Active;
     
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinTable(name="patient_assessments", 
-			   joinColumns= {@JoinColumn(name="patientinfo_id")}, 
-			   inverseJoinColumns={@JoinColumn(name="assessment_id")})	
+    @OneToMany(mappedBy="patient", cascade=CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
 	private Set<Assessment> assessments = new HashSet<Assessment>();
     
 	public static PatientInfo findUserByFirstName(String name) {

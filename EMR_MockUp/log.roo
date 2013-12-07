@@ -33,3 +33,5 @@ field string --fieldName Behavior
 // [failed] field date --fieldName Date --type java.util.Date
 field date --fieldName CreatedDate --type java.util.Date
 hint
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-06 02:58:06
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 17:39:04

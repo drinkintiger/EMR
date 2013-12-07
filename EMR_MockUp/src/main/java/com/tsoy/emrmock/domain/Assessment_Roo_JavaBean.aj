@@ -4,6 +4,7 @@
 package com.tsoy.emrmock.domain;
 
 import com.tsoy.emrmock.domain.Assessment;
+import com.tsoy.emrmock.domain.patients.PatientInfo;
 import java.util.Date;
 
 privileged aspect Assessment_Roo_JavaBean {
@@ -86,6 +87,14 @@ privileged aspect Assessment_Roo_JavaBean {
     
     public void Assessment.setCreatedDate(Date CreatedDate) {
         this.CreatedDate = CreatedDate;
+    }
+    
+    public PatientInfo Assessment.getPatient() {
+        return this.patient;
+    }
+    
+    public void Assessment.setPatient(PatientInfo patient) {
+        this.patient = patient;
     }
     
 }

@@ -5,6 +5,7 @@ package com.tsoy.emrmock.domain;
 
 import com.tsoy.emrmock.domain.Assessment;
 import com.tsoy.emrmock.domain.AssessmentDataOnDemand;
+import com.tsoy.emrmock.domain.patients.PatientInfo;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,6 +35,7 @@ privileged aspect AssessmentDataOnDemand_Roo_DataOnDemand {
         setEndocrineSystem(obj, index);
         setMuscularSystem(obj, index);
         setNervousSystem(obj, index);
+        setPatient(obj, index);
         setRespiratorySystem(obj, index);
         setUrinarySystem(obj, index);
         setVitalSigns(obj, index);
@@ -73,6 +75,11 @@ privileged aspect AssessmentDataOnDemand_Roo_DataOnDemand {
     public void AssessmentDataOnDemand.setNervousSystem(Assessment obj, int index) {
         String NervousSystem = "NervousSystem_" + index;
         obj.setNervousSystem(NervousSystem);
+    }
+    
+    public void AssessmentDataOnDemand.setPatient(Assessment obj, int index) {
+        PatientInfo patient = null;
+        obj.setPatient(patient);
     }
     
     public void AssessmentDataOnDemand.setRespiratorySystem(Assessment obj, int index) {
