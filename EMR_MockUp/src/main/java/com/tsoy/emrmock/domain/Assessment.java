@@ -48,6 +48,7 @@ public class Assessment {
         private String RespiratorySystem;
         private String Behavior;
         private Date CreatedDate;
+        private PatientInfo patient;
         
         public Builder VitalSigns(String VitalSings) {
         	this.VitalSigns = VitalSings;
@@ -99,6 +100,10 @@ public class Assessment {
         	return this;
         }
         
+        public Builder patient(PatientInfo patient) {
+        	this.patient = patient;
+        	return this;
+        }
         public Assessment build() {
         	return new Assessment(this);
         }
@@ -115,5 +120,6 @@ public class Assessment {
     	this.RespiratorySystem = b.RespiratorySystem;
     	this.Behavior = b.Behavior;
     	this.CreatedDate = b.CreatedDate;
+    	this.patient = b.patient;
     }
 }

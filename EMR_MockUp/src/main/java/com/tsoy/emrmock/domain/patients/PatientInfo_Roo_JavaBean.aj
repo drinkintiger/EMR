@@ -4,6 +4,7 @@
 package com.tsoy.emrmock.domain.patients;
 
 import com.tsoy.emrmock.domain.Assessment;
+import com.tsoy.emrmock.domain.CNA_Record;
 import com.tsoy.emrmock.domain.patients.PatientInfo;
 import java.util.Set;
 
@@ -39,6 +40,14 @@ privileged aspect PatientInfo_Roo_JavaBean {
     
     public void PatientInfo.setAssessments(Set<Assessment> assessments) {
         this.assessments = assessments;
+    }
+    
+    public Set<CNA_Record> PatientInfo.getCnaRecords() {
+        return this.cnaRecords;
+    }
+    
+    public void PatientInfo.setCnaRecords(Set<CNA_Record> cnaRecords) {
+        this.cnaRecords = cnaRecords;
     }
     
 }

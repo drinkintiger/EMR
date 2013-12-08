@@ -14,6 +14,7 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
 import com.tsoy.emrmock.domain.Assessment;
+import com.tsoy.emrmock.domain.CNA_Record;
 
 @RooJavaBean
 @RooToString
@@ -40,13 +41,16 @@ public class PatientInfo {
     @OneToMany(mappedBy="patient", cascade=CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
 	private Set<Assessment> assessments = new HashSet<Assessment>();
     
+    @OneToMany(mappedBy="patient", cascade=CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
+    private Set<CNA_Record> cnaRecords = new HashSet<CNA_Record>();
+    
 	public static PatientInfo findUserByFirstName(String name) {
 		if (name == null)
 			return null;
 		
 		PatientInfo patient = entityManager().createQuery("SELECT user FROM PatientInfo user where user.FirstName = ?1", PatientInfo.class).setParameter(1, name).getSingleResult();
 		
-		System.out.println(patient);
+		System.out.println("Patient with name: " + name + " is " + patient);
 		return patient;
 	}
 	

@@ -35,3 +35,9 @@ field date --fieldName CreatedDate --type java.util.Date
 hint
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-06 02:58:06
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-06 17:39:04
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-07 03:19:09
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-07 15:42:48
+entity jpa --class ~.domain.CNA_Record --testAutomatically 
+field other --fieldName FoodIntake --type ~.utils.FoodIntake
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-07 23:14:46
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-08 14:33:51

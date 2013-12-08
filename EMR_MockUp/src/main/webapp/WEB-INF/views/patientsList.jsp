@@ -29,7 +29,6 @@
 		<div class="col-lg-3">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
-
 				<!-- Table -->
 				<table class="table">
 					<thead>
@@ -44,7 +43,7 @@
 							<tr>
 								<td><c:out value="${patient.id}" /></td>
 								<td><button type="submit" class="btn btn-primary"
-										name="selectedPatientID" value=${patient.id}>
+										name="selectedPatientID" value="${patient.id}">
 										<c:out value="${patient.firstName} ${patient.lastName}" />
 									</button></td>
 								<td><c:out value="${patient.active}" /></td>
@@ -54,38 +53,13 @@
 				</table>
 			</div>
 		</div>
-		<div class="col-lg-6 btn-group">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio"
-							name="type">
-						</span>
-						<output class="form-control">Active</output>
-					</div>
-					<!-- /input-group -->
-				</div>
-			</div>
-			<div class="row">
-				<!-- /.col-lg-6 -->
-				<div class="col-lg-3">
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio"
-							name="type">
-						</span>
-						<output type="text" class="form-control">Inactive</output>
-					</div>
-					<!-- /input-group -->
-				</div>
-				<!-- /.col-lg-6 -->
-			</div>
-			<!-- /.row -->
-		</div>
-		<span class="label label-primary">Logged in as ${user}</span>
+		<div class="col-lg-3 pull-right">
+		<span class="label label-primary">Logged in as ${user.first_name} ${user.last_name}</span>
 		<div class="centered-pills">
 			<ul class="nav nav-pills">
 				<li><a href="<c:url value="/login"/>">Sign Out</a></li>
 			</ul>
+		</div>
 		</div>
 	</form:form>
 </body>
