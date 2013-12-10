@@ -40,6 +40,14 @@ public class CNA_Record {
     @ManyToOne(fetch=FetchType.EAGER)
     private PatientInfo patient;
     
+    public CNA_Record findByDate(Date date) {
+    	if(date == null) return null;
+    	
+    	CNA_Record record = entityManager().createQuery("SELECT record FROM CNA_Record record WHERE record.CreatedDate = :date", CNA_Record.class).setParameter("date", date, TemporalType.DATE).getSingleResult();
+    	
+    	return record;
+    }
+    
     public static class Builder {
     	private FoodIntake FoodIntake;
         private FluidIntake FluidIntake;

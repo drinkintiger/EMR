@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.tsoy.emrmock.domain.Assessment;
+import com.tsoy.emrmock.domain.CNA_Record;
 import com.tsoy.emrmock.domain.patients.PatientInfo;
 
 @Controller
@@ -73,14 +74,31 @@ public class ReportingController {
 		System.out.println("THIS IS THE PATIENT THE REPORTS ARE FOR: " + selectedPatient);
 		model.addAttribute("selectedPatient", selectedPatient);
 		
-		Set<Assessment> patientsAssessments = selectedPatient.getAssessments();
+		Set<CNA_Record> patientsCharts = selectedPatient.getCnaRecords();
 		Set<Date> dateList = new HashSet<Date>();
 		
-		for (Assessment assessment: patientsAssessments) {
-			dateList.add(assessment.getCreatedDate());
+		for (CNA_Record record: patientsCharts) {
+			dateList.add(record.getCreatedDate());
 		}
 		
 		model.addAttribute("dateList", dateList);
+		return "ViewCharts";
+	}
+	
+	@RequestMapping(value = "/getChart", method = RequestMethod.POST)
+	public String showChartForDate(HttpServletRequest request,
+										@ModelAttribute("datePicked") Date datePicked,
+										@ModelAttribute("dateSelected") String dateSelected,
+										@ModelAttribute("selectedPatient") PatientInfo selectedPatient,
+										ModelMap model, SessionStatus session) {
+		System.out.println("This is picked date: " + datePicked.toString());
+		System.out.println("This is real picked date: " + dateSelected);
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		DateTime dt = formatter.parseDateTime(dateSelected);
+		Date selectedDate = dt.toDate();
+		System.out.println("This is parsed picked date: " + selectedDate);
+		CNA_Record selectedChart = new CNA_Record().findByDate(selectedDate);
+		model.addAttribute("selectedChart", selectedChart);		
 		return "ViewCharts";
 	}
 	
