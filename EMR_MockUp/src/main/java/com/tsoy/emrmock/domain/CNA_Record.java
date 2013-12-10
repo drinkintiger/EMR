@@ -25,19 +25,16 @@ import com.tsoy.emrmock.utils.FoodIntake;
 @RooJpaActiveRecord
 public class CNA_Record {
 	
-	@Lob
     private FoodIntake FoodIntake;
-	@Lob
     private FluidIntake FluidIntake;
-	@Lob
     private FluidOutput FluidOutput;
     private String BowelMovement;
     @Lob
     private ActivitiesOfDailyLivining activities;
     
     @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(style = "M-", pattern="MM-dd-yyyy")
     private Date CreatedDate;
     
     @ManyToOne(fetch=FetchType.EAGER)

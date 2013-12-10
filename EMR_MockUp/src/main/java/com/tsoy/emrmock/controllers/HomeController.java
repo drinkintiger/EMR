@@ -2,6 +2,7 @@ package com.tsoy.emrmock.controllers;
 
 import java.security.Principal;
 import java.util.Date;
+import java.util.Calendar;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -134,7 +135,8 @@ public class HomeController {
 								 SessionStatus session,
 								 ModelMap model, Principal principal) {
 		if (principal == null) return "logout";
-		Date currentDate = new Date();
+		Calendar cal = Calendar.getInstance();
+		Date currentDate = new Date(cal.getTimeInMillis());
 		System.out.println("This assessment record belongs to " + selectedPatient);
 		Assessment assessment = new Assessment.Builder().VitalSigns(VitalSigns).CardioSystem(CardioSystem)
 														.DigestiveSystem(DigestiveSystem)
@@ -192,7 +194,8 @@ public class HomeController {
 														   .timesVoided(timesVoided)
 														   .emesis(emesis)
 														   .build();
-		Date currentDate = new Date();
+		Calendar cal = Calendar.getInstance();
+		Date currentDate = new Date(cal.getTimeInMillis());
 		ActivitiesOfDailyLivining activities = new ActivitiesOfDailyLivining.Builder().Bathing(bathing)
 																					  .Dressing(dressing)
 																					  .OralCare(oralCare)

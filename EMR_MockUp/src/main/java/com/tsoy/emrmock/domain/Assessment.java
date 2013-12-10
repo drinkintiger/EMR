@@ -1,10 +1,12 @@
 package com.tsoy.emrmock.domain;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 import java.util.Date;
 
 import javax.persistence.FetchType;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,24 +20,41 @@ import com.tsoy.emrmock.domain.patients.PatientInfo;
 @RooToString
 @RooJpaActiveRecord
 public class Assessment {
-
+	
+	@Lob
     private String VitalSigns;
+	@Lob
     private String CardioSystem;
+	@Lob
     private String DigestiveSystem;
+	@Lob
     private String EndocrineSystem;
+	@Lob
     private String UrinarySystem;
+	@Lob
     private String MuscularSystem;
+	@Lob
     private String NervousSystem;
+	@Lob
     private String RespiratorySystem;
+    @Lob
     private String Behavior;
 
     @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(style = "M-", pattern="MM-dd-yyyy")
     private Date CreatedDate;
     
     @ManyToOne(fetch=FetchType.EAGER)
     private PatientInfo patient;
+    
+    public Assessment findByDate(Date date){
+    	if(date == null) return null;
+    	
+    	Assessment assessment = entityManager().createQuery("SELECT assessment FROM Assessment assessment WHERE assessment.CreatedDate = :date", Assessment.class).setParameter("date", date, TemporalType.DATE).getSingleResult();
+    	
+    	return assessment;
+    }
     
     public static class Builder {
         private String VitalSigns;

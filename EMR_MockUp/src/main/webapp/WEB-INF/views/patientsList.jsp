@@ -24,43 +24,62 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.js"></script>
 
-	<form:form class="form"
-		action="${pageContext.request.contextPath}/home" method="post">
-		<div class="col-lg-3">
-			<div class="panel panel-default">
-				<!-- Default panel contents -->
-				<!-- Table -->
-				<table class="table">
-					<thead>
+	<div class="col-lg-6">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<!-- Table -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Patient's Name</th>
+						<th>Active</th>
+						<th>Nursing Assessments</th>
+						<th>CNA Charts</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${patients}" var="patient">
 						<tr>
-							<th>ID</th>
-							<th>Patient's Name</th>
-							<th>Active</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${patients}" var="patient">
-							<tr>
-								<td><c:out value="${patient.id}" /></td>
-								<td><button type="submit" class="btn btn-primary"
+							<td><c:out value="${patient.id}" /></td>
+							<td><form:form class="form"
+									action="${pageContext.request.contextPath}/home" method="post">
+									<button type="submit" class="btn btn-primary"
 										name="selectedPatientID" value="${patient.id}">
 										<c:out value="${patient.firstName} ${patient.lastName}" />
-									</button></td>
-								<td><c:out value="${patient.active}" /></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+									</button>
+								</form:form></td>
+							<td><c:out value="${patient.active}" /></td>
+							<td><form:form class="form"
+									action="${pageContext.request.contextPath}/ViewAssessments"
+									method="post">
+									<button type="submit" class="btn btn-primary"
+										name="viewAssessment" value="${patient.id}">
+										<c:out value="View assessments" />
+									</button>
+								</form:form></td>
+							<td><form:form class="form"
+									action="${pageContext.request.contextPath}/ViewCharts"
+									method="post">
+									<button type="submit" class="btn btn-primary"
+										name="viewCharts" value="${patient.id}">
+										<c:out value="View charts" />
+									</button>
+								</form:form></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
-		<div class="col-lg-3 pull-right">
-		<span class="label label-primary">Logged in as ${user.first_name} ${user.last_name}</span>
+	</div>
+	<div class="col-lg-3 pull-right">
+		<span class="label label-success">Logged in as
+			${user.first_name} ${user.last_name}</span>
 		<div class="centered-pills">
 			<ul class="nav nav-pills">
 				<li><a href="<c:url value="/login"/>">Sign Out</a></li>
 			</ul>
 		</div>
-		</div>
-	</form:form>
+	</div>
 </body>
 </html>
